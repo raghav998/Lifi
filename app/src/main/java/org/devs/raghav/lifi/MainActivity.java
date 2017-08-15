@@ -2,14 +2,19 @@ package org.devs.raghav.lifi;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.camera2.CameraManager;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
+
+    private boolean flash;
+    private int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button send=(Button)findViewById(R.id.SendButtonID);
-        Button Receice=(Button)findViewById(R.id.ReceiveButtonID);
+        Button receice=(Button)findViewById(R.id.ReceiveButtonID);
+        Button test=(Button)findViewById(R.id.TestButtonID);
 
         hasFlash();
 
@@ -25,6 +31,32 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 callSend();
+            }
+        });
+
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M) {
+                    final CameraLatest cameraLatest = new CameraLatest();
+                    count=0;
+                    cameraLatest.init(initCamera2());
+                    new Timer().schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            if(count<=20) {
+                                count++;
+                                if (flash) {
+                                    cameraLatest.flashOn();
+                                    flash = false;
+                                } else {
+                                    cameraLatest.flashOff();
+                                    flash = true;
+                                }
+                            }
+                        }
+                    },10,10);
+                }
             }
         });
     }

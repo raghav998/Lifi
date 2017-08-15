@@ -3,13 +3,13 @@ package org.devs.raghav.lifi;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraAccessException;
 
-public class CameraLatest {
+class CameraLatest {
     private CameraManager camera;
     private String cameraID;
     private boolean isFlashOn;
-    public void init()
+    void init(Object service)
     {
-        camera=(CameraManager)new MainActivity().initCamera2();
+        camera=(CameraManager)service;
         try
         {
                 cameraID=camera.getCameraIdList()[0];
@@ -20,7 +20,7 @@ public class CameraLatest {
         }
         isFlashOn=false;
     }
-    public void flashOn()
+    void flashOn()
     {
         try
         {
@@ -33,7 +33,7 @@ public class CameraLatest {
             new MainActivity().myToast("Error while turning on flash");
         }
     }
-    public void flashOff()
+    void flashOff()
     {
         try
         {
