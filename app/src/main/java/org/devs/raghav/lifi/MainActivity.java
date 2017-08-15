@@ -38,19 +38,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M) {
-                    final CameraLatest cameraLatest = new CameraLatest();
+                    final CameraLegacy cameraLegacy=new CameraLegacy();
                     count=0;
-                    cameraLatest.init(initCamera2());
+                    cameraLegacy.init();
                     new Timer().schedule(new TimerTask() {
                         @Override
                         public void run() {
                             if(count<=20) {
                                 count++;
                                 if (flash) {
-                                    cameraLatest.flashOn();
+                                    cameraLegacy.flashOn();
                                     flash = false;
                                 } else {
-                                    cameraLatest.flashOff();
+                                    cameraLegacy.flashOff();
                                     flash = true;
                                 }
                             }
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void myToast(String s)
     {
-        Toast.makeText(this.getApplicationContext(),s,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
     }
 
     public Object initCamera2()

@@ -23,31 +23,17 @@
             android:textStyle="bold"
             tools:ignore="UnusedAttribute" />
 
-        <TextView
-            android:id="@+id/Empty"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:text="@string/empty"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
         <EditText
             android:id="@+id/Text"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="277dp"
             android:ems="10"
-            android:inputType="text"
-            android:maxLines="1" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:text="@string/emptySpace"
-            tools:text="@string/empty" />
+            android:inputType="textMultiLine"
+            android:maxLines="10" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="64dp"
             android:orientation="horizontal">
 
             <Button
@@ -62,10 +48,26 @@
                 android:id="@+id/SendButtonID"
                 android:layout_width="202dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.20"
-                tools:text="@string/send"
+                android:layout_weight="0.03"
+                android:text="@string/sendBText"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 tools:ignore="ButtonStyle" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/Empty"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="@string/empty"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="@string/emptySpace"
+            tools:text="@string/empty" />
 
     </LinearLayout>
 </RelativeLayout>

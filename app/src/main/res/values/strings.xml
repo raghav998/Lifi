@@ -8,4 +8,5 @@
     <string name="enter_the_text_to_send">Enter the Text to Send</string>
     <string name="emptySpace" />
     <string name="test">Test</string>
+    <string name="sendBText">Send</string>
 </resources>

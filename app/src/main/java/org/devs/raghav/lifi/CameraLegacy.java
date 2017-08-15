@@ -2,12 +2,13 @@ package org.devs.raghav.lifi;
 
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
+import android.util.Log;
 
-public class CameraLegacy {
+class CameraLegacy {
     private Camera camera;
     private Parameters parameters;
     private boolean isFlashOn;
-    public void init()
+    void init()
     {
         if(camera==null)
         {
@@ -19,11 +20,11 @@ public class CameraLegacy {
             }
             catch (RuntimeException e)
             {
-                new MainActivity().myToast("Error while opening camera using camera legacy class");
+                Log.e("error while opening",e.getMessage());
             }
         }
     }
-    public void flashOn()
+    void flashOn()
     {
         if((camera==null)||(parameters==null)||(isFlashOn))
             return;
@@ -34,7 +35,7 @@ public class CameraLegacy {
         isFlashOn=true;
     }
 
-    public void flashOff()
+    void flashOff()
     {
         if((camera==null)||(parameters==null)||(!isFlashOn))
             return;
