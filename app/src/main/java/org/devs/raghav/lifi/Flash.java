@@ -1,27 +1,37 @@
 package org.devs.raghav.lifi;
 
-import android.content.pm.PackageManager;
 import android.os.Build;
-import android.content.Context;
 
 public class Flash {
     private boolean isMarshmallow;
-    private Object camera;
+    private CameraLatest cameraLatest;
+    private CameraLegacy cameraLegacy;
     public Flash()
     {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            isMarshmallow = true;
-        else
-            isMarshmallow = false;
+        isMarshmallow = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
     }
 
     public void init()
     {
-        if(!isMarshmallow)
-            camera = new CameraLegacy();
+        if(isMarshmallow)
+            cameraLatest.init();
         else
-
+            cameraLegacy.init();
     }
 
+    public void flashOn()
+    {
+        if(isMarshmallow)
+            cameraLatest.flashOn();
+        else
+            cameraLegacy.flashOn();
+    }
+    public void flashOff()
+    {
+        if(isMarshmallow)
+            cameraLatest.flashOff();
+        else
+            cameraLegacy.flashOff();
+    }
 }
 

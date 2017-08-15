@@ -2,6 +2,7 @@ package org.devs.raghav.lifi;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.camera2.CameraManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -43,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
     public void myToast(String s)
     {
         Toast.makeText(this.getApplicationContext(),s,Toast.LENGTH_SHORT).show();
+    }
+
+    public Object initCamera2()
+    {
+        return getSystemService(CAMERA_SERVICE);
     }
 }
 
