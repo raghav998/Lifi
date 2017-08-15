@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Lifi</string>
+    <string name="receive">Receive</string>
+    <string name="send">Send</string>
+    <string name="title_activity_send">SendActivity</string>
+    <string name="back">Back</string>
+    <string name="empty" />
+    <string name="enter_the_text_to_send">Enter the Text to Send</string>
+    <string name="emptySpace" />
+</resources>

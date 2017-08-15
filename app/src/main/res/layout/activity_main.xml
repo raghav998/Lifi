@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.devs.raghav.lifi.MainActivity">
+
+
+    <Button
+        android:id="@+id/SendButtonID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:text="@string/send" />
+
+    <Button
+        android:id="@+id/ReceiveButtonID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/SendButtonID"
+        android:layout_alignStart="@+id/SendButtonID"
+        android:layout_below="@+id/SendButtonID"
+        android:layout_marginTop="90dp"
+        android:text="@string/receive" />
+</RelativeLayout>
